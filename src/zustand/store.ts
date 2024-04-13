@@ -17,7 +17,7 @@ interface LayoutState {
 }
 
 export const useBreakpointStore = create<BreakpointState>(set => ({
-  isMobile: false,
+  isMobile: true,
   breakpoint: "sm",
   setBreakpoint: breakpoint =>
     set({ breakpoint, isMobile: breakpoint === "sm" || breakpoint === "xs" }),

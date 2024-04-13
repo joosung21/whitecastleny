@@ -1,7 +1,6 @@
 import style from "./Top.module.scss"
 import { useLayoutStore, useBreakpointStore } from "@/zustand/store"
 import { Bars3Icon } from "@heroicons/react/24/outline"
-// import AirplaneIcon from "@/assets/airplane-black.svg"
 import Link from "next/link"
 
 export default function Top() {
@@ -38,7 +37,6 @@ export default function Top() {
               window.location.href = "/"
             }}
           >
-            {/* <AirplaneIcon className="w-12 h-12 mr-2" /> */}
             <div className="font-[600]">
               WHITE CASTLE <span className="ml-1 text-[#999]">NEW YORK</span>
             </div>
