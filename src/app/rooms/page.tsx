@@ -1,6 +1,26 @@
+"use client"
+import { useState } from "react"
 import { BuildingOfficeIcon } from "@heroicons/react/24/outline"
+import { Calendar, momentLocalizer } from "react-big-calendar"
+import { events } from "./reservations"
+import moment from "moment"
+import { useSnackbarStore } from "@/zustand/snackbarStore"
+import "moment/locale/ko"
+
+moment.locale("ko")
+const localizer = momentLocalizer(moment)
 
 export default function Page() {
+  const openSnackbar = useSnackbarStore(state => state.openSnackbar)
+  const [date, setDate] = useState(new Date())
+  const handleNavigate = (newDate: Date) => {
+    if (newDate >= moment().startOf("month").toDate()) {
+      setDate(newDate)
+    } else {
+      openSnackbar("지난 날짜는 조회할 수 없습니다.", "danger")
+    }
+  }
+
   return (
     <>
       <div className="min-h-[400px] grid grid-cols-12">
@@ -232,6 +252,22 @@ export default function Page() {
               테이크 아웃 피자, 샌드위치 등 도 판매합니다.
             </li>
           </ul>
+
+          <div className="text-xl font-semibold mt-6">예약 현황</div>
+          <div className="h-[800px] scale-90 -mx-9">
+            <Calendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              date={date}
+              views={{
+                month: true,
+                // week: true,
+              }}
+              onNavigate={handleNavigate}
+            />
+          </div>
 
           <div className="text-xl font-semibold mb-4 mt-6">
             숙소로 오시는 길

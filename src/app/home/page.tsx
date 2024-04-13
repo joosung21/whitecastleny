@@ -1,6 +1,6 @@
 "use client"
 import AirplaneIcon from "@/assets/airplane.svg"
-import { motion, useScroll } from "framer-motion"
+import { motion } from "framer-motion"
 
 import {
   BuildingOfficeIcon,
