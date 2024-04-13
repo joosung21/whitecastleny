@@ -1,4 +1,3 @@
-"use client"
 import { useLayoutStore, useBreakpointStore } from "@/zustand/store"
 import clsx from "clsx"
 

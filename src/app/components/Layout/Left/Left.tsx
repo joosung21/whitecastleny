@@ -1,9 +1,7 @@
-"use client"
-// import Link from "next/link"
 import style from "./Left.module.scss"
 import NavLinks from "./components/NavLinks"
-// import { Image } from "@nextui-org/react"
 import { useBreakpointStore, useLayoutStore } from "@/zustand/store"
+import AirplaneIcon from "@/assets/airplane-black.svg"
 import clsx from "clsx"
 
 export default function Left() {
@@ -22,17 +20,12 @@ export default function Left() {
           "shadow-xl": isMobile,
         })}`}
       >
-        {/* <div className="p-4"> */}
-        {/* <Link href="/">
-            <Image
-              alt="nextui logo"
-              height={40}
-              radius="sm"
-              src="https://lh3.googleusercontent.com/8rOxrcbo1UK3hOnXBmU8EN5ubi8boPA8bpo9A95Q-T5Io05_ALpXgkfGleCgZDifdgU"
-              width={40}
-            />
-          </Link> */}
-        {/* </div> */}
+        <div className="px-6 mt-6">
+          <AirplaneIcon className="w-12 h-12 mr-2" />
+          <div className="font-[600]">
+            화이트캐슬 <span className="ml-1 text-[#999]">NEW YORK</span>
+          </div>
+        </div>
         <NavLinks />
       </div>
     </div>

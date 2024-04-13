@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+// https://thenounproject.com/browse/collection-icon/icon-66383/?p=1
+
 // indigo #3F51B5
 // indigo-lighten-5 #E8EAF6
 // indigo-lighten-4 #C5CAE9
@@ -24,7 +26,7 @@
 }
 
 body {
-  color: #171D23;
+  color: #32363A;
   font-family:
     'Pretendard-Regular',
     Pretendard,
@@ -41,6 +43,28 @@ body {
     'Segoe UI Emoji',
     'Segoe UI Symbol',
     sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 16px;
+  li {
+    padding: 4px 0;
+    &:before {
+      content: "•";
+      color: #aaa;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+  }
 }
 
 div[data-slot="empty-content"] {
@@ -155,4 +179,8 @@ dl:not(.border-none) {
   background: url('/home.jpg') no-repeat center center;
   background-size: cover;
   height: calc(100dvh - 56px);
+}
+
+.mapouter, .gmap_canvas, .gmap_iframe {
+  height: 480px;
 }
