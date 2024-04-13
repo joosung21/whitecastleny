@@ -178,7 +178,7 @@ dl:not(.border-none) {
 .home-main-bg {
   background: url('/home.jpg') no-repeat center center;
   background-size: cover;
-  height: calc(100dvh - 56px);
+  height: calc(100vh - 56px);
 }
 
 .mapouter, .gmap_canvas, .gmap_iframe {
