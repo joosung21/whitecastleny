@@ -1,0 +1,158 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// indigo #3F51B5
+// indigo-lighten-5 #E8EAF6
+// indigo-lighten-4 #C5CAE9
+// indigo-lighten-3 #9FA8DA
+// indigo-lighten-2 #7986CB
+// indigo-lighten-1 #5C6BC0
+// indigo-darken-1 #3949AB
+// indigo-darken-2 #303F9F
+// indigo-darken-3 #283593
+// indigo-darken-4 #1A237E
+
+:root {
+  --left-width: 240px;
+}
+
+.text-secondary {
+  color: #32363A;
+}
+
+body {
+  color: #171D23;
+  font-family:
+    'Pretendard-Regular',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
+}
+
+div[data-slot="empty-content"] {
+  color: white;
+  position: relative;
+  &:after {
+    color: #bbb;
+    content: "검색결과가 없습니다.";
+    position: absolute;
+    left: 8px;
+    top: 6px;
+  }
+}
+
+.limit-width {
+  max-width: 1600px;
+}
+
+dl{
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  dt{
+    width: 30%;
+    white-space: nowrap;
+    color: #999;
+    flex-shrink: 0;
+    min-width: 100px;
+    padding-right: 24px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  dd{
+    display: flex;
+    width: 100%;
+    min-height: 24px;
+  }
+  &.dense{
+    padding: 4px 0;
+  }
+  &.border-thick{
+    border-bottom: 1px solid #aaa !important;
+  }
+}
+dl:not(.border-none) {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.main-content {
+  height: 100vh;
+  overflow: auto;
+  flex-grow: 1;
+  margin-left: var(--left-width);
+  transition: all 0.2s ease-in-out;
+  &.full {
+    margin-left: 0;
+  }
+}
+
+// datepicker
+.react-datepicker-popper {
+  padding-top: 5px !important;
+  z-index: 20 !important;
+
+  .react-datepicker {
+    user-select: none;
+    border: none;
+    padding: 10px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    .react-datepicker__triangle {
+      display: none;
+    }
+    .react-datepicker__month-container {
+      .react-datepicker__header {
+        border-radius: 0 !important;
+        background-color: #fff;
+        border-bottom: none;
+      } 
+      .react-datepicker__day-names {
+        border: none;
+      }
+      .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--selected, .react-datepicker__year-text--in-selecting-range, .react-datepicker__year-text--in-range {
+        border-radius: 0.3rem;
+        background-color: #077DFD;
+        color: #fff;
+      }
+    }
+  }
+
+  .react-datepicker__navigation--previous {
+    top: 14px;
+    left: 4px;
+  }
+
+  .react-datepicker__navigation-icon--next {
+    top: 10px;
+    right: 22px;
+  }
+
+  .react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+    margin-top: -4px;
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+// Home
+.home-main-bg {
+  background: url('/home.jpg') no-repeat center center;
+  background-size: cover;
+  height: calc(100dvh - 56px);
+}

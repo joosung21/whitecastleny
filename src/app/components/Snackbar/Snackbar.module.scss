@@ -1,0 +1,12 @@
+.basic {
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  min-width: 300px;
+  max-width: calc(100% - 20px);
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}

@@ -1,0 +1,21 @@
+.left {
+  width: var(--left-width);
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #fff;
+  border-right: 1px solid #e8e8e8;
+  flex-shrink: 0;
+  z-index: 23;
+  transition: all 0.2s ease-in-out;
+  position: fixed;
+  left: 0;
+}
+
+.overlay {
+  @apply w-screen h-screen bg-[rgba(0,0,0,.15)] fixed;
+  z-index: 22;
+}
+
+.hide {
+  left: calc(var(--left-width) * -1);
+}

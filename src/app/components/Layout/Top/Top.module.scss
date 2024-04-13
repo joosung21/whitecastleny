@@ -1,0 +1,10 @@
+.top {
+  @apply border-b border-gray-200 h-14 px-6 flex items-center fixed bg-white;
+  z-index:20;
+  transition: width 0.2s ease-in-out;
+  width: 100%;
+}
+
+.leftOpened {
+  width: calc(100% - var(--left-width));
+}

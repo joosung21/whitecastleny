@@ -1,0 +1,7 @@
+@use './variables.module.scss' as *;
+
+.basic {
+  color: white;
+  // background: $primary;
+  padding: 8px 16px;
+}
