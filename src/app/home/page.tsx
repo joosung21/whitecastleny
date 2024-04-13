@@ -8,6 +8,7 @@ import {
   EnvelopeIcon,
   ChatBubbleOvalLeftIcon,
   PhoneIcon,
+  ArrowRightIcon,
 } from "@heroicons/react/24/outline"
 
 type QuickSlotProps = {
@@ -35,9 +36,14 @@ export default function Home() {
       <div
         className={`col-span-12 md:col-span-6 px-10 py-6 text-white ${bgColor}`}
       >
-        <div className="text-[40px] font-[600]">{title}</div>
+        <div className="text-[36px] font-[600] leading-10 mb-4 mt-4">
+          {title}
+        </div>
         <div>{description}</div>
         {icon}
+        <div className="flex items-center mt-2 text-sm">
+          더보기 <ArrowRightIcon className="w-4 h-4 ml-1" />
+        </div>
       </div>
       <div
         className="col-span-12 md:col-span-6"
