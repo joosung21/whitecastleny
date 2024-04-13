@@ -219,11 +219,11 @@ export default function Page() {
               좋은 뷰 맛집 레스토랑!
             </li>
             <li>
-              <b className="mr-4">Beneci's</b> 이탈리안 & 아메리칸 캐주얼
+              <b className="mr-4">Beneci&apos;s</b> 이탈리안 & 아메리칸 캐주얼
               레스토랑으로 쉐라톤 호텔 일층에 위치해 있는 $20 대 레스토랑
             </li>
             <li>
-              <b className="mr-4">Ruth's Chris Steakhouse</b> 유명 스테이크
+              <b className="mr-4">Ruth&apos;s Chris Steakhouse</b> 유명 스테이크
               하우스 전문 체인점
             </li>
             <li>
@@ -246,9 +246,9 @@ export default function Page() {
               Terminal.
             </li>
             <li>
-              타임스퀘어 41번가 ~ 42번가 8애비뉴에 위치한, "포트 오토리티
-              버스터미널" 에서 "156번, 158번, 159번"의 버스를 2층에 위치한 "202
-              번 게이트"에서 타시면 됩니다.
+              타임스퀘어 41번가 ~ 42번가 8애비뉴에 위치한, 포트 오토리티
+              버스터미널 에서 156번의 버스를 2층에 위치한 202 번 게이트에서
+              타시면 됩니다.
             </li>
             <li>
               에스컬레이터를 타시고 2층 202번 게이트 앞에는 표를 사실수 있는
