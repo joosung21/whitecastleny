@@ -14,7 +14,7 @@ export default function NavLinks() {
   return (
     <div className="mt-6">
       <ALink name="Home" href="/home" icon={HomeIcon} />
-      <ALink name="Rooms" href="/rooms" icon={BuildingOfficeIcon} />
+      <ALink name="Rooms" href="/rooms/1" icon={BuildingOfficeIcon} />
       <ALink name="Tickets" href="/ticket" icon={TicketIcon} />
       <ALink name="Tour" href="/tour" icon={ShoppingBagIcon} />
       <ALink name="Broadway" href="/broadway" icon={BuildingLibraryIcon} />
