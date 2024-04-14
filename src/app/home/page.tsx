@@ -142,7 +142,7 @@ export default function Home() {
                 bgColor="bg-primary"
                 description="42가 맨하탄뷰 숙소"
                 icon={<BuildingOfficeIcon className="w-10 h-10 mt-8" />}
-                url="/rooms"
+                url="/rooms/1"
                 image="/room1.jpeg"
               />
             </div>
