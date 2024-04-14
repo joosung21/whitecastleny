@@ -11,7 +11,7 @@ export default function Layout({ children }: Props) {
       <div className="min-h-[400px] grid grid-cols-12">
         <div className="col-span-12 md:col-span-4 bg-primary px-10 py-6 text-white">
           <div className="text-[40px] font-[600]">ROOMS</div>
-          <div>42가 맨하탄뷰 숙소</div>
+          <div>42가 맨하탄뷰 숙소들</div>
           <BuildingOfficeIcon className="w-12 h-12 mt-8" />
         </div>
         <div
