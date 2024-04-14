@@ -1,8 +1,9 @@
 import { google } from "googleapis"
-import credentials from "@/lib/google-credentials.json"
-const { client_email, private_key } = credentials
 
 export default async function handler(req, res) {
+  const client_email = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL
+  const private_key = process.env.NEXT_PUBLIC_GOOGLE_PRIVATE_KEY
+
   const client = new google.auth.JWT(
     client_email,
     null,
