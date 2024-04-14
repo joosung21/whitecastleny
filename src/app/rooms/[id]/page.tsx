@@ -36,17 +36,22 @@ export default function Page({ params: { id } }: Props) {
         if (!res.ok) throw new Error("Data fetch failed")
         const result = await res.json()
 
-        const events = await result.data
-          .filter((item: string[]) => item[1] === roomExcelTitle)
-          .map((item: string[]) => {
-            const maskedName = item[0].replace(/(?<=^.{1})./g, "*")
+        const filteredEvents = await result.data.filter(
+          (item: string[]) =>
+            item[1] === roomExcelTitle &&
+            moment(item[2], "YYYY-MM-DD", true).isValid() &&
+            !isNaN(Number(item[3])),
+        )
 
-            return {
-              title: `${maskedName} ${item[1]} ${item[3]}박`,
-              start: moment(item[2]).toDate(),
-              end: moment(item[2]).add(Number(item[3]), "days").toDate(),
-            }
-          })
+        const events = await filteredEvents.map((item: string[]) => {
+          const maskedName = item[0].replace(/(?<=^.{1})./g, "*")
+
+          return {
+            title: `${maskedName} ${item[1]} ${item[3]}박`,
+            start: moment(item[2]).toDate(),
+            end: moment(item[2]).add(Number(item[3]), "days").toDate(),
+          }
+        })
 
         setEvents(events)
         setLoading(false)
