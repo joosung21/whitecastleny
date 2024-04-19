@@ -14,10 +14,14 @@ export default function NavLinks() {
   return (
     <div className="mt-6">
       <ALink name="Home" href="/home" icon={HomeIcon} />
-      <ALink name="Rooms" href="/rooms/1" icon={BuildingOfficeIcon} />
-      <ALink name="Tickets" href="/ticket" icon={TicketIcon} />
-      <ALink name="Tour" href="/tour" icon={ShoppingBagIcon} />
-      <ALink name="Broadway" href="/broadway" icon={BuildingLibraryIcon} />
+      <ALink name="뉴욕레지던스" href="/rooms/1" icon={BuildingOfficeIcon} />
+      <ALink name="우드버리투어" href="/ticket" icon={TicketIcon} />
+      <ALink name="티켓/입장권" href="/tour" icon={ShoppingBagIcon} />
+      <ALink
+        name="브로드웨이뮤지컬"
+        href="/broadway"
+        icon={BuildingLibraryIcon}
+      />
     </div>
   )
 }

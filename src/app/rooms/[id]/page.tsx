@@ -36,20 +36,32 @@ export default function Page({ params: { id } }: Props) {
         if (!res.ok) throw new Error("Data fetch failed")
         const result = await res.json()
 
-        const filteredEvents = await result.data.filter(
-          (item: string[]) =>
-            item[1] === roomExcelTitle &&
-            moment(item[2], "YYYY-MM-DD", true).isValid() &&
-            !isNaN(Number(item[3])),
-        )
+        // react-big-calendar docs
+        // https://jquense.github.io/react-big-calendar/examples/?path=/story/about-big-calendar--page
+
+        const filteredEvents = await result.data.filter((item: string[]) => {
+          const locationName = item[1]
+          const checkin = item[3]
+          const nights = item[4]
+          const isValidDate = moment(checkin, "YYYY-MM-DD", true).isValid()
+          const isValidNights = !isNaN(Number(nights))
+
+          return locationName === roomExcelTitle && isValidDate && isValidNights
+        })
 
         const events = await filteredEvents.map((item: string[]) => {
-          const maskedName = item[0].replace(/(?<=^.{1})./g, "*")
+          const guestName = item[0]
+          const roomName = item[2]
+          const checkin = item[3]
+          const nights = item[4]
+
+          const maskedName = guestName.replace(/(?<=^.{1})./g, "*")
+          const shortenedRoomName = roomName.replace(roomExcelTitle || "", "")
 
           return {
-            title: `${maskedName} ${item[1]} ${item[3]}박`,
-            start: moment(item[2]).toDate(),
-            end: moment(item[2]).add(Number(item[3]), "days").toDate(),
+            title: `${maskedName} ${shortenedRoomName}`,
+            start: moment(checkin).toDate(),
+            end: moment(checkin).add(Number(nights), "days").toDate(),
           }
         })
 
@@ -71,215 +83,186 @@ export default function Page({ params: { id } }: Props) {
       openSnackbar("지난 날짜는 조회할 수 없습니다.", "danger")
     }
   }
-
-  // if (loading) return <p>Loading...</p>
+  const RoomPicture = ({ url }: { url: string }) => {
+    return (
+      <div
+        className="col-span-12 sm:col-span-6"
+        style={{
+          backgroundImage: `url('${url}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "100%",
+          height: "100%",
+          opacity: 0.9,
+          minHeight: "380px",
+        }}
+      />
+    )
+  }
 
   return (
     <>
       <div className="py-6">
-        <div className="text-xl font-semibold mb-4">숙소 소개 - {roomName}</div>
-        <ul>
-          <li>
-            맨하탄 도심 42번가에 위치하여 맨하탄 뷰를 감상하실 수 있는
-            숙소입니다.
-          </li>
-          <li>
-            뉴욕의 중심인 맨하탄에서의 풍부하고 다양한 경험을 블라블라 블라블라
-            럭셔리 리조트 아파트의 경험을 제공합니다.
-          </li>
-          <li>
-            프로페셔널하고 세심히 관리되는 럭셔리 호텔 | 리조트 | 풀빌라 스타일
-            아파트의 다양한 생활, 편의시설, 부대시설을 여행 내내 무료로 즐기실수
-            있습니다.
-          </li>
-          <li>
-            새롭게 인테리어 디자인한 곳으로, 모든가구와 식기류는 물론, 숙소 내
-            모든 것들이 Brand New 입니다.
-          </li>
-          <li>
-            하이브리드 메모리얼 폼 퀸 사이즈 침대들과 품질 좋은 브랜드 가구들로
-            인테리어의 품격을 느껴보실수 있습니다.
-          </li>
-          <li>
-            마켓 프라이스 보다 훨씬 저렴하게 측정된 가격이지만, 근처의 쉐라톤
-            호텔보다 높은 퀄리티를 자랑합니다.
-          </li>
-        </ul>
-      </div>
-
-      <div className="py-6">
-        <div className="grid grid-cols-12 gap-2">
-          <div
-            className="col-span-12 sm:col-span-6 md:col-span-4"
-            style={{
-              backgroundImage: `url('/room-temp-1.jpg')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "100%",
-              height: "100%",
-              opacity: 0.9,
-              minHeight: "380px",
-            }}
-          />
-          <div
-            className="col-span-12 sm:col-span-6 md:col-span-4"
-            style={{
-              backgroundImage: `url('/room-temp-2.jpg')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "100%",
-              height: "100%",
-              opacity: 0.9,
-              minHeight: "380px",
-            }}
-          />
-          <div
-            className="col-span-12 sm:col-span-6 md:col-span-4"
-            style={{
-              backgroundImage: `url('/room-temp-3.png')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "100%",
-              height: "100%",
-              opacity: 0.9,
-              minHeight: "380px",
-            }}
-          />
-          <div
-            className="col-span-12 sm:col-span-6 md:col-span-4"
-            style={{
-              backgroundImage: `url('/room-temp-4.png')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "100%",
-              height: "100%",
-              opacity: 0.9,
-              minHeight: "380px",
-            }}
-          />
-          <div
-            className="col-span-12 sm:col-span-6 md:col-span-4"
-            style={{
-              backgroundImage: `url('/room-temp-5.png')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "100%",
-              height: "100%",
-              opacity: 0.9,
-              minHeight: "380px",
-            }}
-          />
-          <div
-            className="col-span-12 sm:col-span-6 md:col-span-4"
-            style={{
-              backgroundImage: `url('/room-temp-6.png')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "100%",
-              height: "100%",
-              opacity: 0.9,
-              minHeight: "380px",
-            }}
-          />
+        <div className="text-xl font-semibold mb-4">
+          화이트캐슬 뉴욕 레지던스 소개
         </div>
+        <p>
+          화이트캐슬 타임스퀘어 지점은 전 지점이 타임스퀘어를 기준으로 미드타운
+          한중심에 위치하고 있습니다.
+          <br /> 모든 손님분들이 깨끗하고 안전하게 머무시다 가실 수 있도록
+          최선을 다해 안내드립니다.
+          <br /> 10년이상된 오랜 운영의 노하우로 화이트캐슬만의 친절하고 깨끗한
+          서비스 약속드립니다.
+        </p>
       </div>
 
       <div className="py-6">
-        <div className="text-xl font-semibold mb-4 mt-6">이용약관</div>
-        <ul>
-          <li>아파트 및 건물 내에서는 절대 금연입니다.</li>
-          <li>
-            오토 마스터키 반납을 하지 않으실 경우 $200의 추가비용이 있습니다.
-          </li>
-          <li>
-            시설에 훼손이 있을 경우 훼손한 만큼의 추가비용 ($1000 이상) 책임이
-            있습니다.
-          </li>
-          <li>
-            밤 10시이후 고성방가를 금지합니다. 위반 시 강제 퇴실될 수 있습니다.
-            (미국 내 불법/소란행위는 이웃들의 즉각적인 경찰신고로 이어지기
-            때문에 각별한 주의 부탁드립니다)
-          </li>
-          <li>
-            예약자외 외부인의 방문 및 숙박을 금지합니다. 원하실 경우 저희 측에
-            꼭 알려주셔야 합니다.
-          </li>
-          <li>
-            유료 얼리 체크인 Early Check-In: 스케줄에 따라서 가능여부가
-            달라집니다. 원하실 경우 저희 쪽으로 문의 및 확인 부탁드립니다.
-          </li>
-          <li>
-            유료 레이트 체크인 Late Check-In: 추가비용 밤 9시 이후 $20, 10시
-            이후 $30, 11시 이후 $40 12시 이후 $50 입니다.
-          </li>
-          <li>
-            저렴한 유료 세탁서비스를 제공합니다. (세탁기 + 건조 + 세탁전용 고
-            농축액 제공)
-          </li>
-          <li>
-            퇴실후 유료 짐보관 가능합니다. 저희 측에 문의 및 확인 부탁 드립니다.
-          </li>
-          <li>호텔식 유료 런드리 세탁 서비스를 제공합니다.</li>
-          <li>콘도 내 유료 주차장 서비스를 제공합니다.</li>
-        </ul>
+        <div className="text-xl font-semibold mb-4">{roomName}</div>
+        {id === "1" && (
+          <ul>
+            <li>3호점 - 마스터룸, 커플룸과 2인 1실 쉐어룸</li>
+            <li>
+              타임스퀘어 바로 한복판에 위치한 고급 아파트 고층 객실이라 한중심
+              최고 좋은 위치과 씨티뷰를 감상하실 수 있는 지점입니다.
+            </li>
+            <li>
+              <b>3호점 마스터룸: </b>침실과 전용화장실을 사용하실 수 있는
+              객실이예요.퀸 침대 1개와 추가 매트리스 셋팅 안내드리고 주방,현관은
+              커플룸,2인 1실 쉐어룸과 쉐어하시게 되세요.
+            </li>
+            <li>
+              <b>3호점 일반룸: </b>여성 거실쉐어 룸과 화장실을 쉐어 .퀸 침대 1개
+              .책상 .옷장 쇼파.3분이 오실 경우 추가 싱글 매트리스 셋팅
+              안내드려요.
+            </li>
+            <li>
+              <b>3호점 2인 1실 여성쉐어룸: </b>거실공간을 분리하여 사용.화장실은
+              커플룸 분들과 쉐어하시게 되고 주방과 현관은 3호점 방 3개가 공동
+              쉐어하시게 되세요. 안내드려요.
+            </li>
+            <li>싱글 침대 2개,전신 거울.책상.수납장.옷걸이</li>
+          </ul>
+        )}
+        {id === "2" && (
+          <ul>
+            <li>5호점 - 센트럴파크 도보 5분</li>
+            <li>
+              최고의 위치 - 53가와 8애비뉴(센트럴 파크마스터룸, 콜럼버스룸,
+              프렌드룸이 한 집이예요)
+            </li>
+            <li>
+              <b>센트럴파크룸(마스터룸): </b>퀸 사이즈 침대 1개
+              .책상.의자.쇼파베드1개 클라젯.전용화장실.(매트리스는 전 지점중에
+              최고급.)
+            </li>
+            <li>
+              <b>콜럼버스룸(커플룸): </b>퀸 사이즈 침대 1개 화장실은 2인 1실
+              쉐어 룸과 쉐어하시게 되고 주방과 현관문은
+              센트럴파크룸,콜럼버스룸,프렌드리빙룸이 쉐어하시게 되세요. 침실은
+              독립적으로 사용하시고 (퀸 1개)화장실 주방은 쉐어하시는 객실입니다
+              (매트리스는 전 지점중에 최고급.)
+            </li>
+            <li>
+              <b>2인 1실 쉐어룸: </b>트윈침대 2개.침대 2개를 원하시는 좋은
+              곳이며,기존 쉐어룸보다 천장에서 30cm떨어진 벽을 세워 방문이 있고
+              방으로 꾸민 공간이라 좋아요. 침실만 따로 사용하시고 화장실은
+              콜럼버스룸과 쉐어하시게 되고 주방,현관은 5호점 마스터룸 콜럼버스룸
+              프렌드룸 객실 3개가 쉐어하시는 객실입니다.
+            </li>
+            <li>
+              관광 필수코스인 락펠러센터,모마미술관,모든 뮤지컬 극장과
+              타임스퀘어가 모두 도보 10분이면 가능한 미드타운 최고의 위치입니다
+            </li>
+          </ul>
+        )}
+        {id === "3" && (
+          <ul>
+            <li>7호점 - 럭셔리 통유리 뷰 독채</li>
+            <li>
+              43번가 11애비뉴 초고층에 위치하여 통유리 뷰를 통해 허드슨강과
+              씨티뷰를 동시에 최고로 즐기실수있는 시설입니다.
+            </li>
+            <li>
+              퀸 침대 1개 추가/추가쇼파베드 셋팅해드려요(베드위에 매트리스 패드
+              얹어드려요)
+            </li>
+          </ul>
+        )}
+      </div>
 
-        <div className="text-xl font-semibold mb-4 mt-6">성수기 안내</div>
+      {id === "2" && (
+        <div className="py-6">
+          <div className="grid grid-cols-12 gap-2">
+            <RoomPicture url="/room-5-1.jpg" />
+            <RoomPicture url="/room-5-2.jpg" />
+            <RoomPicture url="/room-5-3.jpg" />
+            <RoomPicture url="/room-5-4.jpg" />
+          </div>
+        </div>
+      )}
+
+      {id === "3" && (
+        <div className="py-6">
+          <div className="grid grid-cols-12 gap-2">
+            {/* 8개 사진 */}
+            <RoomPicture url="/room-7-1.jpg" />
+            <RoomPicture url="/room-7-2.jpg" />
+            <RoomPicture url="/room-7-3.jpg" />
+            <RoomPicture url="/room-7-4.jpg" />
+            <RoomPicture url="/room-7-5.jpg" />
+            <RoomPicture url="/room-7-6.jpg" />
+            <RoomPicture url="/room-7-7.jpg" />
+            <RoomPicture url="/room-7-8.jpg" />
+          </div>
+        </div>
+      )}
+
+      <div className="py-6">
+        <div className="text-xl font-semibold mb-4 mt-6">
+          화이트캐슬 이용안내
+        </div>
         <ul>
-          <li>5월 ~ 8월 여름 성수기 | 2박 이상 가능</li>
-          <li>9월 ~ 10월 추석 | 5박 이상 가능</li>
-          <li>12월 25일 ~ 1월 8일 크리스마스 & 뉴이어 | 7박 이상 가능</li>
-          <li>1 ~ 2월 한국 설날 | 5박 이상 가능</li>
+          <li>
+            체크아웃 시간은 오전 11시이고 그이후에는 캐리어1개당 10불 유료보관
+            안내드려요 또는 유료짐보관소를 이용해주세요.
+          </li>
+          <li>
+            캐리어는 기본 1인 1캐리어로만 입실이 가능하시도록 안내드려요. (그외
+            배낭 보조가방 노트북 가방등은 가능하세요.)
+          </li>
+          <li>
+            공지가 되어있는대도 캐리어가 2개이상이신 분들은 입실이 불가하시며
+            이를 위해 숙소에서 운영하는 짐만 보관하는 보관소에 다른 곳들보다
+            저렴하게 1박에 $7불씩 짐을 보관하실 수있어요(숙소 보관소는 5박또는
+            짐을 5일이상 맡기실 분들에게만 안내드려요.)
+          </li>
+          <li>
+            10박 이상 하실경우 캐리어가 2개이신 분들도 가능하시오니 짐이 많으신
+            분들은 미리 알려주시면 답변드릴께요.
+          </li>
+          <li>
+            세계의 중심 도시 뉴욕 그곳에서도 타임스퀘어는 맨하탄에서 가장
+            화려하고 볼거리가 많은 곳입니다.
+          </li>
+          <li>
+            화이트 캐슬 타임스퀘어 지점은 다른 일반적인 뉴욕 아파트들이나
+            호텔들과 달리 지은지 몇년 안된 최신식 브랜드 뉴 아파트입니다.
+          </li>
         </ul>
 
         <div className="text-xl font-semibold mb-4 mt-6">어메니티/무료제공</div>
         <ul>
-          <li>Dyson Supersonic Hair Dryer 다이슨 슈퍼소닉 헤어 드라이어</li>
-          <li>무료 WIFI 초고속 Verizon 무선 인터넷</li>
-          <li>다 채널 TV</li>
           <li>
-            수건 제공: 큰 바디타월 및 얼굴 타월 제공. 숙박 일정에 따라 넉넉하게
-            제공합니다.
+            욕실용품:샴푸 바디워시 헤어드라이어(각 방마다 비치) 수건은 1인 1장씩
+            제공
           </li>
+          <li>무선와이파이 wi-fi</li>
           <li>
-            휴지, 샴푸, 컨디셔너, 바디워시, 핸드솝, 다이슨 헤어드라이기 제공. 이
-            외에 필요하신 제품은 준비 해 오셔야 합니다. (치약, 칫솔, 개인적인
-            용품 등)
+            주방취사도구(전자레인지 냉장고 가스레인지 식기류 원두커피 씨리얼
+            제공)
           </li>
-          <li>
-            커피, 커피메이커, Tea, 주전자, 토스트기, 전자렌지, 그릇, 컵, 와인잔,
-            각종냄비, 후라이팬, 칼, 수저, 포크, 취사도구 등.
-          </li>
-        </ul>
-
-        <div className="text-xl font-semibold mb-4 mt-6">주변안내</div>
-        <ul>
-          <li>
-            <b className="mr-4">Blu on the Hudson</b> 새로생긴 맛집 핫
-            플레이스로 다양한 메뉴와 식사가 제공됩니다 구글을 통해 리뷰를 확인해
-            보세요!
-          </li>
-          <li>
-            <b className="mr-4">Blu Sushi Bar</b> 블루 온더 허드슨안에 위치한
-            스시바 입니다
-          </li>
-          <li>
-            <b className="mr-4">Chart House</b> Sea food 함께 허드슨 강 위에서
-            맨하탄의 아름다운 뷰를 보며 식사를 즐기실 수 있는 곳으로, 가성비가
-            좋은 뷰 맛집 레스토랑!
-          </li>
-          <li>
-            <b className="mr-4">Beneci&apos;s</b> 이탈리안 & 아메리칸 캐주얼
-            레스토랑으로 쉐라톤 호텔 일층에 위치해 있는 $20 대 레스토랑
-          </li>
-          <li>
-            <b className="mr-4">Ruth&apos;s Chris Steakhouse</b> 유명 스테이크
-            하우스 전문 체인점
-          </li>
-          <li>
-            <b className="mr-4">Whole Foods</b> 유기농 대형 마트로, 싱싱한
-            재료들로 만들어진 뷔페와 샐러드바, 간단한 식사를 하실수 있는 테이크
-            아웃 피자, 샌드위치 등 도 판매합니다.
-          </li>
+          {["1", "2"].includes(id) && <li>건물내 유료 세탁</li>}
+          {id === "3" && <li>집안에 무료세탁</li>}
         </ul>
 
         <div className="text-xl font-semibold mt-6">{roomName} 예약 현황</div>
@@ -291,34 +274,22 @@ export default function Page({ params: { id } }: Props) {
               startAccessor="start"
               endAccessor="end"
               date={date}
+              onSelectEvent={event => {
+                const messege = `${event.title} ${moment(event.end).diff(
+                  event.start,
+                  "days",
+                )}박
+                \n체크인: ${moment(event.start).format("YYYY-MM-DD")}
+                \n체크아웃: ${moment(event.end).format("YYYY-MM-DD")}`
+                alert(messege)
+              }}
               views={{
                 month: true,
-                // week: true,
               }}
               onNavigate={handleNavigate}
             />
           </div>
         )}
-
-        <div className="text-xl font-semibold mb-4 mt-6">숙소로 오시는 길</div>
-        <ul>
-          <li>
-            예약 후, 개인적으로 보다 자세하고 쉽게 사진을 첨부하여 보내드립니다.
-          </li>
-          <li>
-            Times Sq 41st Street - 42nd Street 8th AVE. Port Authority Bus
-            Terminal.
-          </li>
-          <li>
-            타임스퀘어 41번가 ~ 42번가 8애비뉴에 위치한, 포트 오토리티
-            버스터미널 에서 156번의 버스를 2층에 위치한 202 번 게이트에서 타시면
-            됩니다.
-          </li>
-          <li>
-            에스컬레이터를 타시고 2층 202번 게이트 앞에는 표를 사실수 있는
-            자판기가 있습니다. 거기에서 표를 구매 하시면 됩니다.
-          </li>
-        </ul>
       </div>
     </>
   )

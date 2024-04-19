@@ -5,13 +5,9 @@ export type Room = {
 }
 
 export const roomItems = [
-  { id: 1, name: "1호점 타임스퀘어", excelTitle: "1호점" },
-  { id: 2, name: "2호점 타임스퀘어", excelTitle: "2호점" },
-  { id: 3, name: "3호점 타임스퀘어", excelTitle: "3호점" },
-  { id: 4, name: "4호점 유니온스케어", excelTitle: "4호점" },
-  { id: 5, name: "5호점 유니온스케어", excelTitle: "5호점" },
-  { id: 6, name: "6호점 미드타운", excelTitle: "6호점" },
-  { id: 7, name: "7호점", excelTitle: "7호점" },
+  { id: 1, name: "3호점 49번가 브로드웨이", excelTitle: "3호점" },
+  { id: 2, name: "5호점 센트럴파크", excelTitle: "5호점" },
+  { id: 3, name: "7호점 럭셔리 통유리 뷰 독채", excelTitle: "7호점" },
 ]
 
 export function getRoomName(id: number) {
