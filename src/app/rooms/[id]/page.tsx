@@ -267,7 +267,11 @@ export default function Page({ params: { id } }: Props) {
 
         <div className="text-xl font-semibold mt-6">{roomName} 예약 현황</div>
         {!loading && (
-          <div className="h-[800px] scale-90 -mx-9">
+          <div
+            className={`scale-90 -mx-9 ${
+              id === "1" ? "h-[1000px]" : "h-[760px]"
+            }`}
+          >
             <Calendar
               localizer={localizer}
               events={events}
