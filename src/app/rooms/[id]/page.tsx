@@ -269,7 +269,7 @@ export default function Page({ params: { id } }: Props) {
         {!loading && (
           <div
             className={`scale-90 -mx-9 ${
-              id === "1" ? "h-[1000px]" : "h-[760px]"
+              id === "1" ? "h-[960px]" : "h-[760px]"
             }`}
           >
             <Calendar

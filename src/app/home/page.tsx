@@ -129,7 +129,7 @@ export default function Home() {
           <div className="grid grid-cols-12">
             <div className="col-span-12 lg:col-span-6">
               <QuickSlot
-                title="ROOMS"
+                title="RESIDENCE"
                 bgColor="bg-primary"
                 description="뉴욕 럭셔리 레지던스"
                 icon={<BuildingOfficeIcon className="w-10 h-10 mt-8" />}
@@ -243,7 +243,7 @@ export default function Home() {
           <iframe
             className="gmap_iframe"
             width="100%"
-            src="https://maps.google.com/maps?width=&amp;height=&amp;hl=ko&amp;q=1515+Broadway,+New+York,+NY+10036+미국&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            src="https://maps.google.com/maps?width=&amp;height=&amp;hl=ko&amp;q=75+West+End+Ave,+New+York,+NY+10023+미국&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           ></iframe>
         </div>
       </div>
