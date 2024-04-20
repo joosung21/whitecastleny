@@ -20,7 +20,7 @@ export default function Left() {
           "shadow-xl": isMobile,
         })}`}
       >
-        <div className="px-6 mt-6">
+        <div className="px-6 mt-6" onClick={() => (window.location.href = "/")}>
           <AirplaneIcon className="w-12 h-12 mr-2" />
           <div className="font-[600]">
             화이트캐슬 <span className="ml-1 text-[#999]">NEW YORK</span>

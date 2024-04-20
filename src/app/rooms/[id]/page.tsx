@@ -191,7 +191,7 @@ export default function Page({ params: { id } }: Props) {
         )}
       </div>
 
-      {id === "2" && (
+      {["1", "2"].includes(id) && (
         <div className="py-6">
           <div className="grid grid-cols-12 gap-2">
             <RoomPicture url="/room-5-1.jpg" />
