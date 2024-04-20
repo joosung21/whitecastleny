@@ -141,7 +141,7 @@ export default function Home() {
               <QuickSlot
                 title="TOUR"
                 bgColor="bg-[#7B4340]"
-                description="우드베리 코먼 프리미엄 아웃렛 라이드 서비스"
+                description="우드버리 프리미엄 아웃렛 라이드 서비스"
                 icon={<ShoppingBagIcon className="w-10 h-10 mt-8" />}
                 url="/tour"
                 image="/woodbury.jpeg"
@@ -226,7 +226,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center">
                   <PhoneIcon className="h-5 w-5 mr-2" />
-                  <a href="tel:332-271-7070">332-271-7070</a>
+                  <a href="tel:+1-332-271-7070">332-271-7070</a>
                 </div>
                 {/* <div className="flex items-center mb-4">
                   <ChatBubbleOvalLeftIcon className="h-5 w-5 inline-block mr-2" />

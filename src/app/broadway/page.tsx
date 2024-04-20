@@ -1,6 +1,29 @@
-import { BuildingLibraryIcon } from "@heroicons/react/24/outline"
+import {
+  BuildingLibraryIcon,
+  ClockIcon,
+  GlobeAmericasIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline"
+import Contact from "@/app/components/Contact/Contact"
 
 export default function Page() {
+  const Picture = ({ url }: { url: string }) => {
+    return (
+      <div
+        className="col-span-12 sm:col-span-6 md:col-span-4"
+        style={{
+          backgroundImage: `url('${url}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          width: "100%",
+          height: "100%",
+          opacity: 0.9,
+          minHeight: "380px",
+        }}
+      />
+    )
+  }
+
   return (
     <>
       <div className="min-h-[400px] grid grid-cols-12">
@@ -27,158 +50,180 @@ export default function Page() {
 
       <div className="container">
         <div className="py-6">
-          <div className="text-xl font-semibold mb-4">서비스 소개</div>
-          <ul>
-            <li>
-              맨하탄 도심 42번가에 위치하여 맨하탄 뷰를 감상하실 수 있는
-              숙소입니다.
-            </li>
-            <li>
-              뉴욕의 중심인 맨하탄에서의 풍부하고 다양한 경험을 블라블라
-              블라블라 럭셔리 리조트 아파트의 경험을 제공합니다.
-            </li>
-            <li>
-              프로페셔널하고 세심히 관리되는 럭셔리 호텔 | 리조트 | 풀빌라
-              스타일 아파트의 다양한 생활, 편의시설, 부대시설을 여행 내내 무료로
-              즐기실수 있습니다.
-            </li>
-            <li>
-              새롭게 인테리어 디자인한 곳으로, 모든가구와 식기류는 물론, 숙소 내
-              모든 것들이 Brand New 입니다.
-            </li>
-            <li>
-              하이브리드 메모리얼 폼 퀸 사이즈 침대들과 품질 좋은 브랜드
-              가구들로 인테리어의 품격을 느껴보실수 있습니다.
-            </li>
-            <li>
-              마켓 프라이스 보다 훨씬 저렴하게 측정된 가격이지만, 근처의 쉐라톤
-              호텔보다 높은 퀄리티를 자랑합니다.
-            </li>
-          </ul>
-
-          <div className="text-xl font-semibold mb-4 mt-6">이용약관</div>
-          <ul>
-            <li>아파트 및 건물 내에서는 절대 금연입니다.</li>
-            <li>
-              오토 마스터키 반납을 하지 않으실 경우 $200의 추가비용이 있습니다.
-            </li>
-            <li>
-              시설에 훼손이 있을 경우 훼손한 만큼의 추가비용 ($1000 이상) 책임이
-              있습니다.
-            </li>
-            <li>
-              밤 10시이후 고성방가를 금지합니다. 위반 시 강제 퇴실될 수
-              있습니다. (미국 내 불법/소란행위는 이웃들의 즉각적인 경찰신고로
-              이어지기 때문에 각별한 주의 부탁드립니다)
-            </li>
-            <li>
-              예약자외 외부인의 방문 및 숙박을 금지합니다. 원하실 경우 저희 측에
-              꼭 알려주셔야 합니다.
-            </li>
-            <li>
-              유료 얼리 체크인 Early Check-In: 스케줄에 따라서 가능여부가
-              달라집니다. 원하실 경우 저희 쪽으로 문의 및 확인 부탁드립니다.
-            </li>
-            <li>
-              유료 레이트 체크인 Late Check-In: 추가비용 밤 9시 이후 $20, 10시
-              이후 $30, 11시 이후 $40 12시 이후 $50 입니다.
-            </li>
-            <li>
-              저렴한 유료 세탁서비스를 제공합니다. (세탁기 + 건조 + 세탁전용 고
-              농축액 제공)
-            </li>
-            <li>
-              퇴실후 유료 짐보관 가능합니다. 저희 측에 문의 및 확인 부탁
-              드립니다.
-            </li>
-            <li>호텔식 유료 런드리 세탁 서비스를 제공합니다.</li>
-            <li>콘도 내 유료 주차장 서비스를 제공합니다.</li>
-          </ul>
-
-          <div className="text-xl font-semibold mb-4 mt-6">성수기 안내</div>
-          <ul>
-            <li>5월 ~ 8월 여름 성수기 | 2박 이상 가능</li>
-            <li>9월 ~ 10월 추석 | 5박 이상 가능</li>
-            <li>12월 25일 ~ 1월 8일 크리스마스 & 뉴이어 | 7박 이상 가능</li>
-            <li>1 ~ 2월 한국 설날 | 5박 이상 가능</li>
-          </ul>
-
-          <div className="text-xl font-semibold mb-4 mt-6">
-            어메니티/무료제공
+          <div className="grid grid-cols-12 gap-4 text-lg font-semibold">
+            <div className="col-span-12 md:col-span-4">
+              <div className="flex align-center items-center border-2 rounded-lg py-4 px-6">
+                <ClockIcon className="w-9 h-9 mr-2" />
+                소요 시간
+                <div className="ml-auto">2시간/3시간(약)</div>
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-4">
+              <div className="flex align-center items-center border-2 rounded-lg py-4 px-6">
+                <GlobeAmericasIcon className="w-9 h-9 mr-2" />
+                공연 언어
+                <div className="ml-auto">English</div>
+              </div>
+            </div>
+            <div className="col-span-12 md:col-span-4">
+              <div className="flex align-center items-center border-2 rounded-lg py-4 px-6">
+                <CheckCircleIcon className="w-9 h-9 mr-2" />
+                모바일 바우처 수락
+                <div className="ml-auto">가능</div>
+              </div>
+            </div>
           </div>
-          <ul>
-            <li>Dyson Supersonic Hair Dryer 다이슨 슈퍼소닉 헤어 드라이어</li>
-            <li>무료 WIFI 초고속 Verizon 무선 인터넷</li>
-            <li>다 채널 TV</li>
-            <li>
-              수건 제공: 큰 바디타월 및 얼굴 타월 제공. 숙박 일정에 따라
-              넉넉하게 제공합니다.
-            </li>
-            <li>
-              휴지, 샴푸, 컨디셔너, 바디워시, 핸드솝, 다이슨 헤어드라이기 제공.
-              이 외에 필요하신 제품은 준비 해 오셔야 합니다. (치약, 칫솔,
-              개인적인 용품 등)
-            </li>
-            <li>
-              커피, 커피메이커, Tea, 주전자, 토스트기, 전자렌지, 그릇, 컵,
-              와인잔, 각종냄비, 후라이팬, 칼, 수저, 포크, 취사도구 등.
-            </li>
-          </ul>
+        </div>
 
-          <div className="text-xl font-semibold mb-4 mt-6">주변안내</div>
-          <ul>
-            <li>
-              <b className="mr-4">Blu on the Hudson</b> 새로생긴 맛집 핫
-              플레이스로 다양한 메뉴와 식사가 제공됩니다 구글을 통해 리뷰를
-              확인해 보세요!
-            </li>
-            <li>
-              <b className="mr-4">Blu Sushi Bar</b> 블루 온더 허드슨안에 위치한
-              스시바 입니다
-            </li>
-            <li>
-              <b className="mr-4">Chart House</b> Sea food 함께 허드슨 강 위에서
-              맨하탄의 아름다운 뷰를 보며 식사를 즐기실 수 있는 곳으로, 가성비가
-              좋은 뷰 맛집 레스토랑!
-            </li>
-            <li>
-              <b className="mr-4">Beneci&apos;s</b> 이탈리안 & 아메리칸 캐주얼
-              레스토랑으로 쉐라톤 호텔 일층에 위치해 있는 $20 대 레스토랑
-            </li>
-            <li>
-              <b className="mr-4">Ruth&apos;s Chris Steakhouse</b> 유명 스테이크
-              하우스 전문 체인점
-            </li>
-            <li>
-              <b className="mr-4">Whole Foods</b> 유기농 대형 마트로, 싱싱한
-              재료들로 만들어진 뷔페와 샐러드바, 간단한 식사를 하실수 있는
-              테이크 아웃 피자, 샌드위치 등 도 판매합니다.
-            </li>
-          </ul>
+        <div className="py-6">
+          <div className="text-xl font-semibold mb-4">
+            뉴욕에서의 가장 특별한 경험
+          </div>
+          <p>
+            최고의 연출가와 가수, 배우들이 브로드웨이에서 활약하고 있습니다. 몇
+            년이 지나도 여전히 사랑받는 작품들도 있죠. 뮤지컬은 젊은이나 언어를
+            완벽히 이해하지 못하는 사람들에게도 적합하며, 우화, 코미디, 드라마
+            등 다양한 장르를 경험할 수 있습니다. 이제 브로드웨이에서 현재 상영
+            중인 작품 중 하나를 선택하기만 하면 됩니다!
+          </p>
+        </div>
 
-          <div className="text-xl font-semibold mb-4 mt-6">
-            숙소로 오시는 길
+        <div className="py-6">
+          <div className="grid grid-cols-12 gap-2">
+            <Picture url="/show-1.jpeg" />
+            <Picture url="/show-2.jpeg" />
+            <Picture url="/show-3.webp" />
+            <Picture url="/show-4.jpeg" />
+            <Picture url="/show-5.jpeg" />
+            <Picture url="/show-6.jpeg" />
+          </div>
+        </div>
+
+        <div className="py-6">
+          <div className="text-xl font-semibold mb-4">
+            현재 브로드웨이에서 상영 중인 뮤지컬
           </div>
           <ul>
             <li>
-              예약 후, 개인적으로 보다 자세하고 쉽게 사진을 첨부하여
-              보내드립니다.
+              <b className="mr-4">Aladdin</b>2024년 8월 11일 까지, 2024
             </li>
             <li>
-              Times Sq 41st Street - 42nd Street 8th AVE. Port Authority Bus
-              Terminal.
+              <b className="mr-4">Americano</b>상시 공영 중
             </li>
             <li>
-              타임스퀘어 41번가 ~ 42번가 8애비뉴에 위치한, 포트 오토리티
-              버스터미널 에서 156번의 버스를 2층에 위치한 202 번 게이트에서
-              타시면 됩니다.
+              <b className="mr-4">Back to the Future: The Musical</b>2024년 12월
+              1일 까지
             </li>
             <li>
-              에스컬레이터를 타시고 2층 202번 게이트 앞에는 표를 사실수 있는
-              자판기가 있습니다. 거기에서 표를 구매 하시면 됩니다.
+              <b className="mr-4">Beetlejuice</b>상시 공영 중
+            </li>
+            <li>
+              <b className="mr-4">Blue Man Group</b>2024년 12월 31일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Book of Mormon</b>2024년 9월 1일 까지
+            </li>
+            <li>
+              <b className="mr-4">Cabaret at the Kit Kat Club</b>2024년 4월 1일
+              부터 2025년 3월 29일 까지
+            </li>
+            <li>
+              <b className="mr-4">Chicago</b>2024년 9월 1일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Great Gatsby</b>2024년 11월 24일 까지
+            </li>
+            <li>
+              <b className="mr-4">Hadestown</b>2024년 12월 1일 까지
+            </li>
+            <li>
+              <b className="mr-4">Hamilton</b>2024년 9월 1일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Heart of Rock and Roll</b>2025년 1월 19일
+              까지
+            </li>
+            <li>
+              <b className="mr-4">Hell&apos;s Kitchen</b>2024년 9월 29일 까지
+            </li>
+            <li>
+              <b className="mr-4">Lempicka</b>2025년 1월 5일 까지
+            </li>
+            <li>
+              <b className="mr-4">Titanic</b>2025년 1월 12일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Lion King</b>2024년 8월 11일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Little Prince</b>상시 공영 중
+            </li>
+            <li>
+              <b className="mr-4">Little Shop Of Horrors</b>2026년 1월 4일 까지
+            </li>
+            <li>
+              <b className="mr-4">MJ</b>2024년 9월 8일 까지
+            </li>
+            <li>
+              <b className="mr-4">Moulin Rouge! The Musical</b>2024년 9월 1일
+              까지
+            </li>
+            <li>
+              <b className="mr-4">The Notebook</b>2024년 11월 24일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Outsiders</b>2024년 12월 22일 까지
+            </li>
+            <li>
+              <b className="mr-4">Water for Elephants</b>2024년 9월 8일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Who&apos;s TOMMY</b>2024년 11월 30일 까지
+            </li>
+            <li>
+              <b className="mr-4">Six</b>상시 공영 중
+            </li>
+            <li>
+              <b className="mr-4">Wicked</b>2024년 9월 1일 까지
+            </li>
+            <li>
+              <b className="mr-4">The Wiz</b>2024년 8월 18일 까지
             </li>
           </ul>
         </div>
+
+        <div className="py-6">
+          <div className="text-xl font-semibold mb-4">
+            이용 안내 및 유의사항
+          </div>
+          <ul>
+            <li>
+              오케스트라 또는 프런트 메자닌 티켓입니다. VIP 티켓도 제공
+              가능합니다.
+            </li>
+            <li>예약을 하지 않으면 공연 가능 여부를 확인할 수 없습니다.</li>
+            <li>예약 시 바우처와 함께 제공한 주소로 확인 메일이 발송됩니다.</li>
+            <li>
+              좌석은 극장 매표소에서 배정하며 구매일 전에 미리 알려드리지
+              않습니다.
+            </li>
+            <li>티켓은 공연 당일 극장 매표소에서 수령하실 수 있습니다.</li>
+            <li>
+              휠체어 이용 가능, 휠체어 지원이 필요한 경우 예매 시 알려주시기
+              바랍니다.
+            </li>
+            <li>성인 요금이 모두 적용되며 어린이 할인은 적용되지 않습니다.</li>
+            <li>
+              모든 판매는 최종 판매이며, 예약이 완료되면 취소할 수 없음을
+              유의하시기 바랍니다.
+            </li>
+            <li>
+              취소 정책: 예약 후 100% 환불 불가. 취소 시 환불이 불가능합니다.
+            </li>
+          </ul>
+        </div>
+
+        <Contact />
       </div>
     </>
   )

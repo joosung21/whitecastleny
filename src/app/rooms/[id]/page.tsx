@@ -4,6 +4,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar"
 import moment from "moment"
 import { useSnackbarStore } from "@/zustand/snackbarStore"
 import { getRoomName, getRoomExcelTitle } from "../useRooms"
+import Contact from "@/app/components/Contact/Contact"
 import "moment/locale/ko"
 
 moment.locale("ko")
@@ -295,6 +296,8 @@ export default function Page({ params: { id } }: Props) {
           </div>
         )}
       </div>
+
+      <Contact />
     </>
   )
 }
