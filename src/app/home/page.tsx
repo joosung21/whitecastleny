@@ -216,7 +216,7 @@ export default function Home() {
             <div className="text-2xl font-semibold mb-4">문의하기</div>
 
             <div className="leading-10 text-lg">
-              75 west end ave #R18D, New York, NY 10023
+              {/* 75 west end ave #R18D, New York, NY 10023 */}
               <div className="flex flex-col items-center">
                 <div className="flex items-center">
                   <EnvelopeIcon className="h-5 w-5 mr-2" />
@@ -224,10 +224,10 @@ export default function Home() {
                     whitecastleny@gmail.com
                   </a>
                 </div>
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <PhoneIcon className="h-5 w-5 mr-2" />
                   <a href="tel:+1-332-271-7070">332-271-7070</a>
-                </div>
+                </div> */}
                 {/* <div className="flex items-center mb-4">
                   <ChatBubbleOvalLeftIcon className="h-5 w-5 inline-block mr-2" />
                   <a href="http://pf.kakao.com/_stkyb">카카오톡</a>
