@@ -9,7 +9,7 @@ import {
   BuildingLibraryIcon,
   EnvelopeIcon,
   // ChatBubbleOvalLeftIcon,
-  PhoneIcon,
+  // PhoneIcon,
   ArrowRightIcon,
 } from "@heroicons/react/24/outline"
 

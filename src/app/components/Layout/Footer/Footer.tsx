@@ -1,7 +1,7 @@
 import {
   EnvelopeIcon,
   // ChatBubbleOvalLeftIcon,
-  PhoneIcon,
+  // PhoneIcon,
 } from "@heroicons/react/24/outline"
 import Image from "next/image"
 // import AirplaneIcon from "@/assets/airplane-black.svg"
