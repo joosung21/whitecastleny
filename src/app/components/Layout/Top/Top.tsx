@@ -44,7 +44,7 @@ export default function Top() {
 
           <div className="ml-auto flex gap-10 font-[500]">
             <NavButton name="뉴욕레지던스" href="/rooms/1" />
-            <NavButton name="우드버리투어" href="/tour" />
+            <NavButton name="투어" href="/tours" />
             <NavButton name="티켓/입장권" href="/ticket" />
             <NavButton name="브로드웨이뮤지컬" href="/broadway" />
           </div>

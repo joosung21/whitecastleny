@@ -1,7 +1,7 @@
 import {
   EnvelopeIcon,
   // ChatBubbleOvalLeftIcon,
-  // PhoneIcon,
+  PhoneIcon,
 } from "@heroicons/react/24/outline"
 import Image from "next/image"
 // import AirplaneIcon from "@/assets/airplane-black.svg"
@@ -27,6 +27,12 @@ export default function Footer() {
               />
             </div>
             <div className="col-span-12 md:col-span-8">
+              <div className="font-semibold">KJ New York Tour Corp</div>
+              75 west end ave, New York, NY 10023
+              <div className="flex items-center">
+                <PhoneIcon className="h-5 w-5 mr-2" />
+                <a href="tel:+1-332-271-7070">332-271-7070</a>
+              </div>
               {/* <div className="font-semibold">KJ New York Tour Corp</div>
               75 west end ave #R18D, New York, NY 10023
               <div className="flex items-center">

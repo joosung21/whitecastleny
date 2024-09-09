@@ -2,7 +2,7 @@
 
 import {
   HomeIcon,
-  ShoppingBagIcon,
+  CameraIcon,
   TicketIcon,
   BuildingOfficeIcon,
   BuildingLibraryIcon,
@@ -16,7 +16,7 @@ export default function NavLinks() {
       <ALink name="Home" href="/home" icon={HomeIcon} />
       <ALink name="뉴욕레지던스" href="/rooms/1" icon={BuildingOfficeIcon} />
       <ALink name="티켓/입장권" href="/ticket" icon={TicketIcon} />
-      <ALink name="우드버리투어" href="/tour" icon={ShoppingBagIcon} />
+      <ALink name="투어" href="/tours" icon={CameraIcon} />
       <ALink
         name="브로드웨이뮤지컬"
         href="/broadway"

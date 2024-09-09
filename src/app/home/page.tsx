@@ -9,7 +9,8 @@ import {
   BuildingLibraryIcon,
   EnvelopeIcon,
   // ChatBubbleOvalLeftIcon,
-  // PhoneIcon,
+  PhoneIcon,
+  CameraIcon,
   ArrowRightIcon,
 } from "@heroicons/react/24/outline"
 
@@ -141,10 +142,10 @@ export default function Home() {
               <QuickSlot
                 title="TOUR"
                 bgColor="bg-[#7B4340]"
-                description="우드버리 프리미엄 아웃렛 라이드 서비스"
-                icon={<ShoppingBagIcon className="w-10 h-10 mt-8" />}
-                url="/tour"
-                image="/woodbury.jpeg"
+                description="뉴욕의 투어상품들"
+                icon={<CameraIcon className="w-10 h-10 mt-8" />}
+                url="/tours"
+                image="/tours01.jpg"
               />
             </div>
             <div className="col-span-12 lg:col-span-6">
@@ -194,7 +195,7 @@ export default function Home() {
             </p>
             <p>
               10년이상된 오랜 운영의 노하우로 화이트캐슬만의 친절하고 깨끗한
-              서비스 약속 드립니다.
+              서비스 약속드립니다.
             </p>
           </div>
           <hr />
@@ -217,6 +218,7 @@ export default function Home() {
 
             <div className="leading-10 text-lg">
               {/* 75 west end ave #R18D, New York, NY 10023 */}
+              75 west end ave, New York, NY 10023
               <div className="flex flex-col items-center">
                 <div className="flex items-center">
                   <EnvelopeIcon className="h-5 w-5 mr-2" />
@@ -224,10 +226,10 @@ export default function Home() {
                     whitecastleny@gmail.com
                   </a>
                 </div>
-                {/* <div className="flex items-center">
+                <div className="flex items-center">
                   <PhoneIcon className="h-5 w-5 mr-2" />
                   <a href="tel:+1-332-271-7070">332-271-7070</a>
-                </div> */}
+                </div>
                 {/* <div className="flex items-center mb-4">
                   <ChatBubbleOvalLeftIcon className="h-5 w-5 inline-block mr-2" />
                   <a href="http://pf.kakao.com/_stkyb">카카오톡</a>
