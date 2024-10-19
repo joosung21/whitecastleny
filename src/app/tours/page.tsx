@@ -130,7 +130,7 @@ export default function Page() {
               <div className="font-bold my-2">48,500원</div>
             </div>
           </div>
-          
+
           <div className="col-span-12 md:col-span-4">
             <div
               className="cursor-pointer pb-6"
@@ -175,7 +175,9 @@ export default function Page() {
                 뉴욕 현대 미술관 MoMA 도슨트 투어 + 입장권 포함
               </div>
               <div>⭐️ 4.9 (230)</div>
-              <div className="font-bold my-2"><span className="text-red-500">3%</span> 106,700</div>
+              <div className="font-bold my-2">
+                <span className="text-red-500">3%</span> 106,700
+              </div>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 import {
   BuildingOfficeIcon,
-  ShoppingBagIcon,
+  // ShoppingBagIcon,
   TicketIcon,
   BuildingLibraryIcon,
   EnvelopeIcon,
