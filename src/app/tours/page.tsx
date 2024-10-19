@@ -130,6 +130,54 @@ export default function Page() {
               <div className="font-bold my-2">48,500원</div>
             </div>
           </div>
+          
+          <div className="col-span-12 md:col-span-4">
+            <div
+              className="cursor-pointer pb-6"
+              onClick={() => (window.location.href = "/tours/tour5")}
+            >
+              <div
+                className="rounded-xl min-h-[300px]"
+                style={{
+                  backgroundImage: `url('/tt51.jpg')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  width: "100%",
+                  height: "100%",
+                  opacity: 0.9,
+                }}
+              />
+              <div className="text-lg font-bold mt-4">
+                뉴욕 메트로폴리탄 미술관 / 입장권 포함
+              </div>
+              <div>⭐️ 4.6 (32)</div>
+              <div className="font-bold my-2">99,000원</div>
+            </div>
+          </div>
+
+          <div className="col-span-12 md:col-span-4">
+            <div
+              className="cursor-pointer pb-6"
+              onClick={() => (window.location.href = "/tours/tour6")}
+            >
+              <div
+                className="rounded-xl min-h-[300px]"
+                style={{
+                  backgroundImage: `url('/tt61.jpg')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  width: "100%",
+                  height: "100%",
+                  opacity: 0.9,
+                }}
+              />
+              <div className="text-lg font-bold mt-4">
+                뉴욕 현대 미술관 MoMA 도슨트 투어 + 입장권 포함
+              </div>
+              <div>⭐️ 4.9 (230)</div>
+              <div className="font-bold my-2"><span className="text-red-500">3%</span> 106,700</div>
+            </div>
+          </div>
         </div>
       </div>
     </>
